@@ -25,8 +25,12 @@ jobs:
     - name: Zip Resource Pack
       run: zip -r swordcraftonline_resource_pack.zip .
     
+    - name: Calculate SHA1 hash
+      id: hashpack
+      run: sha1sum swordcraftonline_resource_pack.zip > hash.sha1
+    
     - name: Push to CDN
       run: |
         eval "$(ssh-agent -s)"
         ssh-add - <<< "${{ secrets.CDN_INGRESS_KEY }}"
-        scp -o StrictHostKeyChecking=no -v -P "${{ secrets.CDN_INGRESS_PORT }}" -r swordcraftonline_resource_pack.zip "${{ secrets.CDN_INGRESS_USER }}"@"${{ secrets.CDN_INGRESS }}":"${{ secrets.CDN_PATH }}"
+        scp -o StrictHostKeyChecking=no -v -P "${{ secrets.CDN_INGRESS_PORT }}" -r swordcraftonline_resource_pack.zip hash.sha1 "${{ secrets.CDN_INGRESS_USER }}"@"${{ secrets.CDN_INGRESS }}":"${{ secrets.CDN_PATH }}"
