@@ -14,5 +14,5 @@ The server will not tell clients that there is a new version of the resource pac
 5. To update the resource pack on a server, get the hash from the hash file linked in step 4 and paste it into the `resource-pack-sha1` field of the `server.properties` file. Example: `resource-pack-sha1=ece3b3e0f4e12d98cba2ad6e0be19237293838b3`.
 6. Restart server
 
-**Versio Note**
+**Versioning Note**
 Note that the hash value only tells the client when to download a new version of the resource pack. If someone downloads the resource pack, it updates, and the hash does not get updated in `server.properties`, then that user will not see the updated resource pack. However, if a user who has not already downloads the resource pack joins the server, they will download the new resource pack because it is the only copy available. This is not inherently bad, but is important to know if you start seeing weird assets and models and other people dont.
