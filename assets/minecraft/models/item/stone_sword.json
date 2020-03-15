@@ -5,6 +5,7 @@
     },
 
     "overrides": [
-        {"predicate": {"custom_model_data": 1}, "model": "item/custom/dependable_dagger"}
+        {"predicate": {"custom_model_data": 1}, "model": "item/custom/dependable_dagger"},
+        {"predicate": {"custom_model_data": 3}, "model": "item/custom/reliable_rapier"}
     ]
 }
