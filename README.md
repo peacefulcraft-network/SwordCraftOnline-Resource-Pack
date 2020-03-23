@@ -2,7 +2,7 @@
 SwordCraftOnline Resource Pack
 
 # Deployment
-Any changes made to master trigger a pipeline to build the resource pack and push it to our webserver. The progress of builds can be tracked [here](https://github.com/peacefulcraft-network/SwordCraftOnline-Resource-Pack/actions) and the files will be uploaded [here](https://cdn.peacefulcraft.net/resources/) upon completion.
+Merge changes from master into the `deploy` branch to trigger the build pipeline. The progress of builds can be tracked [here](https://github.com/peacefulcraft-network/SwordCraftOnline-Resource-Pack/actions) and the files will be uploaded [here](https://cdn.peacefulcraft.net/resources/) upon completion.
 
 The server will not tell clients that there is a new version of the resource pack available until the `resource-pack-sha1` property in `server.properties` is changed. This value is also generated in the build process and is placed in the `hash.sha1` file with the resource pack at the above link. Just open the `.sha1` file, copy the hash out, and paste the new value into server config and restart. Note that the hash is just the first string, do not include the filename. IE: `ece3b3e0f4e12d98cba2ad6e0be19237293838b3`.
 
