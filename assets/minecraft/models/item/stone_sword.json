@@ -8,7 +8,6 @@
         {"predicate": {"custom_model_data": 1}, "model": "item/custom/dependable_dagger"},
         {"predicate": {"custom_model_data": 2}, "model": "item/custom/steady_sword"},
         {"predicate": {"custom_model_data": 3}, "model": "item/custom/reliable_rapier"},
-        {"predicate": {"custom_model_data": 4}, "model": "item/custom/accurate_axe"},
         {"predicate": {"custom_model_data": 6}, "model": "item/custom/anfalen"},
         {"predicate": {"custom_model_data": 7}, "model": "item/custom/merellien"},
         {"predicate": {"custom_model_data": 8}, "model": "item/custom/syllenas"},
