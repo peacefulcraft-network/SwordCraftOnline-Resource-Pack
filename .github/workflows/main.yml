@@ -38,5 +38,5 @@ jobs:
     - name: Send build notification
       run: |
         echo ::set-env name=commitmsg::$(git log --format=%B -n 1 ${{ github.event.after }})
-        curl -X POST ${{ secrets.NOTIFY_URL }} -H "Content-Type: application/json" -d '{ "username": "${{ github.actor }}", "content": "Deployed resource pack at commit `${{ env.commitmsg }}`."}'
+        curl -X POST ${{ secrets.NOTIFY_URL }} -H "Content-Type: application/json" -d "{ \"username\": \"${{ github.actor }}\", \"content\": \"Deployed resource pack at commit `$commitmsg`.\"}"
         
