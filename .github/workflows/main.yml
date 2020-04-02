@@ -36,7 +36,7 @@ jobs:
         scp -o StrictHostKeyChecking=no -v -P "${{ secrets.CDN_INGRESS_PORT }}" -r swordcraftonline_resource_pack.zip hash.sha1 "${{ secrets.CDN_INGRESS_USER }}"@"${{ secrets.CDN_INGRESS }}":"${{ secrets.CDN_PATH }}"
 
     - name: Get commit message
-      run: echo ::set-env name=commitmsg::$(git log --format=%B -n 1)
+      run: echo ::set-env name=commitmsg::$(git log --format=%B -n 1 ${{ github.event.before }})
     - name: Debug
       run: |
         echo "DEBUG: $commitmsg"
