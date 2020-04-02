@@ -1,13 +1,11 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Package Resource Pack
 
 # Controls when the action will run. Triggers the workflow on push or pull request 
 # events but only for the master branch
 on:
   push:
-    branches: [ deploy ]
-  pull_request:
     branches: [ deploy ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -34,3 +32,10 @@ jobs:
         eval "$(ssh-agent -s)"
         ssh-add - <<< "${{ secrets.CDN_INGRESS_KEY }}"
         scp -o StrictHostKeyChecking=no -v -P "${{ secrets.CDN_INGRESS_PORT }}" -r swordcraftonline_resource_pack.zip hash.sha1 "${{ secrets.CDN_INGRESS_USER }}"@"${{ secrets.CDN_INGRESS }}":"${{ secrets.CDN_PATH }}"
+
+    - name: Get commit message
+      run: echo ::set-env name=commitmsg::$(git log --format=%B -n 5)
+    - name: Send build notification
+      run: |
+        curl -X POST ${{ secrets.NOTIFY_URL }} -H "Content-Type: application/json" -d "{ \"username\": \"${{ github.actor }}\", \"content\": \"Deployed resource pack at commit \`\`\`$commitmsg\`\`\`\"}"
+        

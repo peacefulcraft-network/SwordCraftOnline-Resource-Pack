@@ -4514,12 +4514,12 @@
 			"scale": [1.7, 1.7, 1.7]
 		},
 		"firstperson_righthand": {
-			"rotation": [0, 98, 148.5],
+			"rotation": [0, 98, 146.5],
 			"translation": [-1.5, 3.5, 3.5],
 			"scale": [1.1, 1.1, 1.1]
 		},
 		"firstperson_lefthand": {
-			"rotation": [0, -93, -148],
+			"rotation": [0, -93, -146],
 			"translation": [-1, 3.5, 3.5],
 			"scale": [1.1, 1.1, 1.1]
 		},
