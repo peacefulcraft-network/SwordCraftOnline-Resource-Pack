@@ -1,0 +1,23 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "custom/centipede_test",
+		"particle": "custom/centipede_test"
+	},
+	"elements": [
+		{
+			"from": [0, 7.625, -4.5],
+			"to": [16, 19.625, 27.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0.5, 8, -3.5]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 5.75], "texture": "#0"},
+				"east": {"uv": [0, 0, 16, 5.75], "texture": "#0"},
+				"south": {"uv": [0, 0, 8, 5.75], "texture": "#0"},
+				"west": {"uv": [0, 10, 16, 15.75], "texture": "#0"},
+				"up": {"uv": [0, 0, 8, 15.75], "texture": "#0"},
+				"down": {"uv": [8, 0, 16, 15.75], "texture": "#0"}
+			}
+		}
+	],
+	"display": {}
+}
