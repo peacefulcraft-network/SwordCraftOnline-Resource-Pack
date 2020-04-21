@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+      "bottom": "custom/centipede_test",
+      "top": "custom/centipede_test",
+      "side": "custom/centipede_test"
+  }
+}
