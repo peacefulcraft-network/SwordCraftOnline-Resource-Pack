@@ -7,8 +7,6 @@ name: Package Resource Pack
 on:
   push:
     branches: [ deploy ]
-  pull_request:
-    branches: [ deploy ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,11 +24,18 @@ jobs:
       run: zip -r swordcraftonline_resource_pack.zip .
     
     - name: Calculate SHA1 hash
-      id: hashpack
-      run: sha1sum swordcraftonline_resource_pack.zip > hash.sha1
+      run: |
+        sha1sum swordcraftonline_resource_pack.zip > hash.sha1
     
     - name: Push to CDN
       run: |
         eval "$(ssh-agent -s)"
         ssh-add - <<< "${{ secrets.CDN_INGRESS_KEY }}"
         scp -o StrictHostKeyChecking=no -v -P "${{ secrets.CDN_INGRESS_PORT }}" -r swordcraftonline_resource_pack.zip hash.sha1 "${{ secrets.CDN_INGRESS_USER }}"@"${{ secrets.CDN_INGRESS }}":"${{ secrets.CDN_PATH }}"
+
+    - name: Get commit message
+      run: echo ::set-env name=commitmsg::$(git log --format=%B -n 1)
+    - name: Send build notification
+      run: |
+        curl -X POST ${{ secrets.NOTIFY_URL }} -H "Content-Type: application/json" -d "{ \"username\": \"${{ github.actor }}\", \"content\": \"Deployed resource pack at commit \`$commitmsg\`. \`\`\`$(<hash.sha1)\`\`\` \"}"
+        
