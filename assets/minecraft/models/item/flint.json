@@ -1,0 +1,15 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "item/flint"
+    },
+
+    "overrides": [
+        {"predicate": {"custom_model_data": 1}, "model": "item/custom/critical_strike"},
+        {"predicate": {"custom_model_data": 2}, "model": "item/custom/parry"},
+        {"predicate": {"custom_model_data": 3}, "model": "item/custom/forward_lunge"},
+        {"predicate": {"custom_model_data": 4}, "model": "item/custom/heavy_impact"},
+        {"predicate": {"custom_model_data": 5}, "model": "item/custom/pristine_grindstone"},
+        {"predicate": {"custom_model_data": 6}, "model": "item/custom/serration_wave"}
+    ]
+}
